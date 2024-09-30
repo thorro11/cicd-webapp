@@ -1,0 +1,32 @@
+services:
+  webapp:
+    image: thorcornelis/webapp:latest
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./database:/app/database
+    depends_on:
+      - database
+    environment:
+      MYSQL_URL: mysql://root:pw@database:3306/mydb
+
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pw
+      MYSQL_DATABASE: mydb
+    volumes:
+      - my-vol:/var/lib/mysq
+
+  tests:
+    image: thorcornelis/webapp:latest
+    environment:
+      API_URL: http://webapp:3000
+    depends_on:
+      - webapp
+    command: ['yarn', 'test']
+
+volumes:
+  my-vol:
