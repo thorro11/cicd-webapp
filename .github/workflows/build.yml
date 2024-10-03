@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: yarn lint
+        run: 'npx eslint -c ./.eslintrc.json ./src'
