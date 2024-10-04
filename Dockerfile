@@ -1,10 +1,10 @@
 FROM node:20.9.0-alpine
 WORKDIR /app
 
-COPY ./webapp/package.json ./webapp/yarn.lock .
+COPY ./package.json ./yarn.lock .
 RUN yarn install --frozen-lockfile
 
-COPY ./webapp .
+COPY . .
 
 EXPOSE 3000
 
