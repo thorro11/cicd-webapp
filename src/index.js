@@ -55,7 +55,6 @@ persistence
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
-      console.log('hallo daar');
     });
   })
   .catch((err) => {
