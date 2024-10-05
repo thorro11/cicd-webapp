@@ -31,4 +31,3 @@ jobs:
           context: .
           push: true
           tags: thorcornelis/webapp:latest
-      

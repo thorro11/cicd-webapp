@@ -1,8 +1,0 @@
-services:
-  webapp:
-    image: webapp
-    restart: always
-    ports:
-      - '3000:3000'
-    volumes:
-      - ./database:/app/database
