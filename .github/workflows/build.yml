@@ -18,14 +18,12 @@ jobs:
         run: yarn install
       - name: Lint
         run: yarn lint
-      - name: Start app
+      - name: Test app
         run: |
           yarn start &
           PID=$!
-      - name: Test
-        run: yarn test
-      - name: Stop app
-        run: kill $PID
+          yarn test
+          kill $PID
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Docker Hub
